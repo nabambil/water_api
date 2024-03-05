@@ -1,0 +1,23 @@
+{
+  "name": "node_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "env TZ='Asia/Kuala_Lumpur' nodemon index.js",
+    "stop": "pkill -f nodemon"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "forever": "^4.0.3",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
