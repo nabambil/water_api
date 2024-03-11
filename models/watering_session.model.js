@@ -43,6 +43,18 @@ WateringSession.findById = function (id, result) {
     });
 };
 
+WateringSession.findDriver = function (id, result) {
+    dbConn.query("Select driver_id from watering_sessions group by driver_id ", function (err, res) {
+        if (err) {
+            console.log("error: ", err);
+            result(err, null);
+        }
+        else {
+            result(null, res);
+        }
+    });
+};
+
 WateringSession.findByDate = function (day, month, year, result) {
     var query = "";
 
@@ -149,5 +161,7 @@ WateringSession.delete = function (id, result) {
         }
     });
 };
+
+
 
 module.exports = WateringSession;
