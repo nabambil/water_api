@@ -43,6 +43,7 @@ app.use('/api/v1/sessions', wateringSessionRoutes);
 app.use('/api/v1/authentication', authenticationRoutes);
 
 
+console.log(Date());
 // listen for requests
 app.listen(port, () => {
   logger.info(`Server is listening on port ${port}`, port);
