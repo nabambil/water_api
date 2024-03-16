@@ -93,7 +93,10 @@ WateringSession.findByDate = function (driver_id, day, month, year, result) {
 
 
     query += "WHERE YEAR(created_at) =" + year;
-    query += " AND driver_id ='" + driver_id.toUpperCase() + "'";
+
+    if (driver_id != null) {
+        query += " AND driver_id ='" + driver_id.toUpperCase() + "'";
+    }
 
     if (day != null) {
         query += " AND MONTH(created_at) = " + month + " AND DAY(created_at) = " + day;
