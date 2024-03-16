@@ -7,6 +7,8 @@ router.get('/', wateringSessionController.findAll);
 
 router.get('/chart/', wateringSessionController.findByDate);
 
+router.get('/drivers/', wateringSessionController.findAllDriver);
+
 // Create a new watering
 router.post('/', wateringSessionController.insert);
 

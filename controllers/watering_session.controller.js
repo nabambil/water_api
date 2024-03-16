@@ -1,13 +1,15 @@
 'use strict';
 
 const WateringSession = require('../models/watering_session.model');
+const WateringDriverSession = require('../models/drivers.model');
+
 
 
 const logger = require('../logger');
 
 exports.findAll = function (req, res) {
     WateringSession.findAll(function (err, watering_session) {
-        // console.log('controller')
+        console.log(watering_session);
         if (err) {
             res.send(err);
             logger.warn(err);
@@ -17,8 +19,8 @@ exports.findAll = function (req, res) {
 };
 
 exports.findAllDriver = function (req, res) {
-    WateringSession.findDriver(function (err, watering_session) {
-        // console.log('controller')
+    WateringDriverSession.findDriver(function (err, watering_session) {
+        console.log(watering_session);
         if (err) {
             res.send(err);
             logger.warn(err);
@@ -88,10 +90,11 @@ exports.findByDate = function (req, res) {
     var day = req.query.day;
     var month = req.query.month;
     var year = req.query.year;
+    var driver_id = req.query.driver_id;
 
     console.log(day);
 
-    WateringSession.findByDate(day, month, year, function (err, watering_session) {
+    WateringSession.findByDate(driver_id, day, month, year, function (err, watering_session) {
         // console.log('controller')
         if (err) {
             res.send(err);
