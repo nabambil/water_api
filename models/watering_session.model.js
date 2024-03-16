@@ -82,7 +82,7 @@ WateringSession.findByDate = function (day, month, year, result) {
         query += "cast(sum(consume) as decimal(10, 2)) as total_amount ";
     }
 
-    query += "from watering_monitoring.watering_sessions ";
+    query += "from watering_sessions ";
 
 
 
@@ -123,9 +123,9 @@ WateringSession.findAll = function (result) {
     concat(p1.lat,",",p1.longitude) as geolocation, 
     p1.created_at as updated, 
     water.stop_at as activity
-        FROM watering_monitoring.watering_sessions AS water
-        JOIN watering_monitoring.waters p1 ON (water.id = p1.session_id)
-        LEFT OUTER JOIN watering_monitoring.waters p2 ON (water.id = p2.session_id AND 
+        FROM water_monitoring.watering_sessions AS water
+        JOIN water_monitoring.waters p1 ON (water.id = p1.session_id)
+        LEFT OUTER JOIN water_monitoring.waters p2 ON (water.id = p2.session_id AND 
             (p1.created_at < p2.created_at OR (p1.created_at = p2.created_at AND p1.id < p2.id)))
         WHERE p2.id IS NULL;`, function (err, res) {
         if (err) {
