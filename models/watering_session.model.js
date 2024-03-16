@@ -13,9 +13,15 @@ var WateringSession = function (data) {
     this.created_at = new Date();
     this.updated_at = new Date();
 };
+
+var WateringDriverSession = function (data) {
+    this.driver_id = data.driver_id;
+};
+
 WateringSession.create = function (data, result) {
 
     try {
+        data.driver_id = data.driver_id.toString().toUpperCase();
         dbConn.query("INSERT INTO watering_sessions set ?", data, function (err, res) {
             if (err) {
                 console.log("error: ", err);
@@ -43,7 +49,7 @@ WateringSession.findById = function (id, result) {
     });
 };
 
-WateringSession.findDriver = function (id, result) {
+WateringDriverSession.findDriver = function (result) {
     dbConn.query("Select driver_id from watering_sessions group by driver_id ", function (err, res) {
         if (err) {
             console.log("error: ", err);
@@ -55,7 +61,7 @@ WateringSession.findDriver = function (id, result) {
     });
 };
 
-WateringSession.findByDate = function (day, month, year, result) {
+WateringSession.findByDate = function (driver_id, day, month, year, result) {
     var query = "";
 
     if (day != null) {
@@ -87,6 +93,7 @@ WateringSession.findByDate = function (day, month, year, result) {
 
 
     query += "WHERE YEAR(created_at) =" + year;
+    query += " AND driver_id ='" + driver_id.toUpperCase() + "'";
 
     if (day != null) {
         query += " AND MONTH(created_at) = " + month + " AND DAY(created_at) = " + day;

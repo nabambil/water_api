@@ -17,3 +17,6 @@
 2022-12-23T06:28:45.192Z : [warn - ER_BAD_FIELD_ERROR: Unknown column 'undefined' in 'where clause']
 2022-12-23T06:30:34.295Z : [warn - ER_BAD_FIELD_ERROR: Unknown column 'undefined' in 'where clause']
 2024-03-13T17:22:48.493Z : [warn - ER_BAD_NULL_ERROR: Column 'reservoir_start' cannot be null]
+2024-03-15T17:48:32.490Z : [warn - ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'driver_id ='NABIL' AND MONTH(created_at) = 3 AND DAY(created_at) = 14' at line 1]
+2024-03-15T17:49:03.719Z : [warn - ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'driver_id ='Nabil' AND MONTH(created_at) = 3 AND DAY(created_at) = 14' at line 1]
+2024-03-15T17:49:21.080Z : [warn - ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'driver_id ='NABIL' AND MONTH(created_at) = 3 AND DAY(created_at) = 14' at line 1]
